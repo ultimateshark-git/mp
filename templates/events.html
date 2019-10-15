@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="../static/css/home.css">
+	<link rel="stylesheet" href="../static/css/homeres.css">
+	<link rel="stylesheet" href="../static/css/simple-grid.css">
+	<link rel="stylesheet" href="../static/css/navbar.css">
+	<link rel="stylesheet" href="../static/css/footer.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+   footer a{
+		color: white;
+		text-decoration: none;
+	}
+	footer  a:link {
+  color: white;
+}
+footer  a:visited {
+  color: white;
+}
+footer a:hover {
+  color: white;
+}
+footer a:active {
+  color: white;
+}
+
+</style>
+
+
+<title>My Parliament - Home </title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="../static/css/courses.css">
+<link rel="stylesheet" href="../static/css/coursesres.css">
+<link rel="stylesheet" href="../static/css/simple-grid.css">
+</head>
+<body>
+	<nav>
+		<div class="logo" style="color: black;">My Parliament</div>
+
+		<!-- <ul class="list">
+			<li class="i"><a href="/courses-all">Courses</a></li>
+			<li class="i"><a href="/olympiad-all">Olympiad</a></li>
+			<li class="i"><a href="/event-all">Events</a></li>
+			<li>
+				<a href="{{nav_value[1]}}" class="login_btn">{{nav_value[0]}}</a>
+			</li>
+		</ul> -->
+
+		<ul class="list">
+			<li class="i"><a href="courses.html">Courses</a></li>
+			<li class="i"><a href="olympiad.html">Olympiads</a></li>
+			<li class="i"><a href="events.html">Events</a></li>
+			<li>
+				<a href="login.html" class="login_btn">Login</a>
+			</li>
+			<li><span class="side_menu" onclick="openNav()">&#9776;</span></li>
+		</ul>
+
+	</nav>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/courses-all">Courses
+  <a href="/olympiad-all">Olympiad</a>
+  <a href="/event-all">Events</a>
+  <a href="#">Login</a>
+</div>
+
+
+<div style="margin-top:90px;"></div>
+
+
+
+
+
+<br><br>
+<div class="all_courses_h">All Events</div>
+
+	<div class="course_cont">
+
+		<a href="event1.html" target="_parent">
+			<div class="course_box_wrap">
+			    <div class="course_box">
+			      <img src="../static/img/events.jpg">
+			      <div class="course_det">
+			      	<div class="course_name">TedX event</div>
+
+			      	<div class="tutor">By Innovate Craft</div>
+			      	<div class="dur">20 Sep 2019</div>
+
+			      </div>
+			    </div>
+	  		</div>
+	  	</a>
+
+
+
+
+
+	</div>
+
+	<div style="margin-top:30px;"></div>
+<footer>
+	<div class="footer_wrap">
+
+		<div class="footer_left">
+			<div class="footer_logo">My <br> Parliament</div>
+		</div>
+
+		<div class="footer_list">
+			<div class="footer_list_wrap">
+
+				<ul class="list_one">
+					<li><a href="fellowship.html">Fellowship</a></li>
+					<li><a href="budgetsession.html">BudgetSession</a></li>
+					<li><a href="/get/role">Role</a></li>
+					<li><a href="/get/whyus">Why Us</a></li>
+					<li><a href="/get/coffee">Coffee</a></li>
+				</ul>
+
+				<ul class="list_two">
+					<li><a href="/get/researchshala">Researchshala</a></li>
+					<li><a href="/get/sponsorship">Sponsorship</a></li>
+					<li><a href="/get/third_box_internship">ThirdBoxInternship</a></li>
+					<li><a href="/get/policy_workshop">PolicyWorkshop</a></li>
+					<li><a href="/get/operations_manager">OperationsManager</a></li>
+
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<img src="">
+			<img src="">
+			<img src="">
+		</div>
+	</div>
+</footer>
+
+<script>
+
+
+
+
+$(window).scroll(function(){
+	var scroll =$(window).scrollTop();
+
+	if(scroll>120){
+		$("nav").addClass("navScroll");
+
+	}else{
+		$("nav").removeClass("navScroll");
+
+	}
+});
+
+</script>
+</body>
+<script type="text/javascript">
+  function iframeLoaded() {
+      var iFrameID = document.getElementById('loadframe');
+      if(iFrameID) {
+            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight+100 + "px";
+      }
+  }
+</script>
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+</html>

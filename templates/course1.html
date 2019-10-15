@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="../static/css/course_det.css">
+	<link rel="stylesheet" href="../static/css/course_det_res.css">
+	<link rel="stylesheet" href="../static/css/simple-grid.css">
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
+</head>
+
+<style>
+	::-webkit-scrollbar{
+		width:10px;
+	}
+	::-webkit-scrollbar-thumb {
+  		background:rgba(32, 106, 134,0.8);
+  		border-radius: 20px;
+	}
+
+</style>
+<script type="text/javascript">
+	function check_enrollment(){
+		var request = new XMLHttpRequest();
+	request.open('GET', "/get-enrollment-in-course/{{course.course_id}}");
+	request.responseType = 'JSON';
+
+	request.onload = function() {
+		var myArr = JSON.parse(this.responseText)
+	  document.getElementById("enroll").innerHTML="<a href="+myArr['link']+"><button class='enroll_btn'>"+myArr['data']+"</button></a>"
+
+	};
+
+	request.send();
+	}
+
+</script>
+<script type="text/javascript">
+  function iframeLoaded() {
+      var iFrameID = window.top.document.getElementById('loadframe');
+      if(iFrameID) {
+            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+      }
+  }
+</script>
+
+<body style="margin-top: 7%">
+
+<div class="row">
+				<!-- 	<div class="col-8">
+						<div class="course_name">{{course.name}}</div>
+							<div class="course_auth">By {{course.author}}</div>
+					</div>
+
+					<div class="col-3 right" id="enroll">
+						<script type="text/javascript">check_enrollment()</script>
+						<a href="/course-enroll/{{course.course_id}}"><button class="enroll_btn">ENROLL NOW</button></a>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12 abt_course_h">About This Course</div>
+				</div>
+
+				<div class="row">
+					<div class="col-10 abt_course_txt ">
+						{{course.description}}
+					</div>
+				</div> -->
+
+			<div style="margin-left:5%;">
+
+			<div class="course_det_enr_wrap">
+				<div class="course_det_1">
+					<div class="course_name" style="margin-left:0px;font-size:2.5em;">{{ course.name }}</div>
+					<!-- <div class="tutor_name" style="margin-top:5px;">By {{ course.author }} </div> -->
+<!--					<div class="category" style="margin-top:20px;"><span>Category:</span> Nvidia , Photograhy , Software Development</div>   -->
+				</div>
+				<div class="enr_btn_wrap">
+					<a href="/course-enroll/{{course.course_id}}"><button class="enr_btn"> ENROLL  &nbsp;   &nbsp;   &#8377; 5,000</button></a>
+					<br><br>
+					<div class="dur"> <b>Duration : </b> {{ course.duration }}</div>
+					<div class="date"> <b>Start Date : </b> {{ course.start_date }}</div>
+				</div>
+			</div>
+
+
+				<div class="tabs">
+					<div class="tabbtn active" onclick="openTab(event,'desc');">Description</div>
+					<div class="tabbtn" onclick="openTab(event,'progress')">Progress</div>
+					<div class="tabbtn" onclick="openTab(event,'announce')">Announcement</div>
+					<div class="tabbtn" onclick="openTab(event,'tutor')">Tutor</div>
+				</div>
+
+
+			</div>
+
+
+
+<!-- Description Starts Here -->
+			<div id="desc" class="tab_cont">
+				<div class="row" >
+					<div class="col-10">
+						<div class="plyr__video-embed" id="player" style="position: relative;">
+    						<iframe
+						        src="{{course.demo_link}}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+						        allowfullscreen
+						        allowtransparency
+						        allow="autoplay"
+						        style="">
+						    </iframe>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="course_desc">
+          {{ course.description }}
+	         </div>
+<!--
+				<div class="course_last_det_wrap">
+
+					<div class="last">
+						<div class="aud_h">Target Audience</div>
+						<ul class="target_aud">
+							<li>Students</li>
+							<li>Teachers</li>
+							<li>Professors</li>
+							<li>Application developers</li>
+							<li>Application designers</li>
+						</ul>
+					</div>
+
+					<div class="last">
+						<div class="aud_h">Requirements</div>
+						<ul class="target_aud">
+							<li>Basic Knowledge</li>
+							<li>Nothing</li>
+						</ul>
+					</div>
+
+					<div class="last">
+						<div class="aud_h">Perks</div>
+						<ul class="target_aud">
+							<li>Basic Knowledge</li>
+							<li>Nothing</li>
+						</ul>
+					</div>
+
+				</div>
+
+-->
+			</div>
+
+<!-- Description Ends Here -->
+
+
+<!-- Progress Starts Here -->
+
+<div id="progress" class="tab_cont" style="display: none;"	>
+
+	<div style="text-align:center">Your Progress will be shown here</div>
+</div>
+
+<!-- Progress Ends Here -->
+
+
+<!-- Announcement Starts Here -->
+
+<div id="announce" class="tab_cont" style="display: none;">
+
+	<!-- Jinja starts here -->
+	<div class="announce_wrap">
+    {% for a in course.announce %}
+		<div class="title">{{ a.title }}</div>
+		<div class="date">- {{ a.date }}</div>
+		<div class="announce_cont">{{ a.description }}</div>
+    {% endfor %}
+	</div>
+
+	<!-- Jinja ends here -->
+</div>
+
+<!-- Announcement Progress Ends Here -->
+
+
+
+<!-- Tutor Starts Here -->
+
+<div id="tutor" class="tab_cont"  style="display: none;">
+	<div class="tutor_wrap">
+		<div class="tut_det_wrap">
+			<div class="tut_img_wrap"
+				 style="background: url('../static/img/cj1.jpg') ;background-position: center;">
+
+			</div>
+
+
+			<div class="tut_det">
+				<div class="tut_name">A P Shukla</div>
+				<div class="tut_bio">Computer Science, Artifitial Intelligence</div>
+					<br>
+
+      <!-- {% for author in course.author %}
+			<div class="tut_det">
+				<div class="tut_name">{{ author.name }}</div>
+				<div class="tut_bio">{{ author.tutor_bio }}</div>
+					<br>
+					{% endfor %} -->
+<!--				<div class="exp_h">EXPERTISE</div>
+			<ul class="exp_list">
+				<li>Databases</li>
+				<li>Algorithms</li>
+				<li>Deep Learning</li>
+				<li>Machine Learning</li>
+			</ul>
+
+
+			</div>
+-->
+	</div>
+
+
+</div>
+</div>
+
+<!-- Tutor Ends Here -->
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+	{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      swal('{{message}}');
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+</script>
+
+<script>
+function openTab(e, tab) {
+	iframeLoaded()
+  var i, x, tablinks;
+  x = document.getElementsByClassName("tab_cont");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tabbtn");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace("active", "");
+  }
+  document.getElementById(tab).style.display = "block";
+  e.currentTarget.className += " active";
+}
+</script>
+
+
+
+</body>

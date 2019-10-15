@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="../static/css/home.css">
+	<link rel="stylesheet" href="../static/css/homeres.css">
+	<link rel="stylesheet" href="../static/css/simple-grid.css">
+	<link rel="stylesheet" href="../static/css/navbar.css">
+	<link rel="stylesheet" href="../static/css/footer.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+   footer a{
+		color: white;
+		text-decoration: none;
+	}
+	footer  a:link {
+  color: white;
+}
+footer  a:visited {
+  color: white;
+}
+footer a:hover {
+  color: white;
+}
+footer a:active {
+  color: white;
+}
+
+</style>
+
+	<title>My Parliament - EVENTS </title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="../static/css/event_det.css">
+	<link rel="stylesheet" href="../static/css/simple-grid.css">
+<script type="text/javascript">
+	function check_enrollment(){
+		var request = new XMLHttpRequest();
+	request.open('GET', "/get-enrollment-in-event/{{event.event_id}}");
+	request.responseType = 'JSON';
+
+	request.onload = function() {
+		var myArr = JSON.parse(this.responseText)
+	  document.getElementById("enroll").innerHTML="<a href="+myArr['link']+"><button>"+myArr['data']+"</button></a>"
+
+	};
+
+	request.send();
+	}
+
+</script>
+<style>
+	.event_det .img{
+	width:100%;
+	height:350px;
+	background: url('../static/img/ted.png') no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+}
+</style>
+</head>
+<body>
+	<nav>
+		<div class="logo" style="color: black;">My Parliament</div>
+
+		<!-- <ul class="list">
+			<li class="i"><a href="/courses-all">Courses</a></li>
+			<li class="i"><a href="/olympiad-all">Olympiad</a></li>
+			<li class="i"><a href="/event-all">Events</a></li>
+			<li>
+				<a href="{{nav_value[1]}}" class="login_btn">{{nav_value[0]}}</a>
+			</li>
+		</ul> -->
+
+		<ul class="list">
+			<li class="i"><a href="courses.html">Courses</a></li>
+			<li class="i"><a href="olympiad.html">Olympiads</a></li>
+			<li class="i"><a href="events.html">Events</a></li>
+			<li>
+				<a href="login.html" class="login_btn">Login</a>
+			</li>
+			<li><span class="side_menu" onclick="openNav()">&#9776;</span></li>
+		</ul>
+
+	</nav>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/courses-all">Courses
+  <a href="/olympiad-all">Olympiad</a>
+  <a href="/event-all">Events</a>
+  <a href="#">Login</a>
+</div>
+
+
+<div class="event_det" style="margin-top: 7%">
+	<div class="img"></div>
+	<div class="event_det_wrap">
+		<div class="event_name"> TedX Event </div>
+		<div class="event_time"> 20 Sept 2019 </div>
+		<div class="event_loc"> Ghaziabad </div>
+	</div>
+
+
+</div>
+
+
+
+<div class="event_desc_wrap">
+	<div class="event_desc_cont">
+		<div class="desc_h">Event Description</div> <br>
+		A TEDx event is a local gathering where live TED-like talks and performances are shared with the community. TEDx events are fully planned and coordinated independently, on a community-by-community basis. The content and design of each TEDx event is unique and developed independently, but all of them have features in common.
+
+		TED's format
+		A suite of short, carefully prepared talks, demonstrations and performances that are idea-focused, and cover a wide range of subjects to foster learning, inspiration and wonder – and provoke conversations that matter.
+
+		Diversity of topics
+		All TEDx events present multiple issues and a diversity of voices from many disciplines. After all, what’s the fun without a little variety?
+
+		Community-driven and bias-free content
+		A TEDx event is organized by volunteers from the local community, and just like TED events, it lacks any commercial, religious or political agenda. Its goal is to spark conversation, connection and community.
+	</div>
+
+	<div class="other_det">
+		<button class="reg_btn">REGISTER</button> <br><br>
+		<div class="date">Start Date : 20 Sept 2019</div>
+		<div class="date">End Date : 22 Sept 2019</div>
+		<div class="date">Price :&#8377; 500</div>
+	</div>
+</div>
+
+
+	<div class="sch_wrap">
+		<div class="desc_h">Schedule</div> <br>
+        <!-- {% for s in event.schedule %}
+    <div class="sch">
+			<div class="sch_day">
+				<span class="sch_day_h">{{ s.day }}</span>
+				<span class="sch_desc">{{ s.description }}</span>
+			</div>
+		</div>
+        {% endfor %} -->
+        <div class="sch">
+    			<div class="sch_day">
+    				<span class="sch_day_h">Day 1</span>
+    				<span class="sch_desc">Introduction</span>
+    			</div>
+    		</div>
+        <div class="sch">
+    			<div class="sch_day">
+    				<span class="sch_day_h">Day 2</span>
+    				<span class="sch_desc">Seminars</span>
+    			</div>
+    		</div>
+        <div class="sch">
+    			<div class="sch_day">
+    				<span class="sch_day_h">Day 3</span>
+    				<span class="sch_desc">Closing ceremony</span>
+    			</div>
+    		</div>
+	</div>
+
+
+
+
+
+
+
+
+  <div style="margin-top:30px;"></div>
+<footer>
+	<div class="footer_wrap">
+
+		<div class="footer_left">
+			<div class="footer_logo">My <br> Parliament</div>
+		</div>
+
+		<div class="footer_list">
+			<div class="footer_list_wrap">
+
+				<ul class="list_one">
+					<li><a href="fellowship.html">Fellowship</a></li>
+					<li><a href="budgetsession.html">BudgetSession</a></li>
+					<li><a href="/get/role">Role</a></li>
+					<li><a href="/get/whyus">Why Us</a></li>
+					<li><a href="/get/coffee">Coffee</a></li>
+				</ul>
+
+				<ul class="list_two">
+					<li><a href="/get/researchshala">Researchshala</a></li>
+					<li><a href="/get/sponsorship">Sponsorship</a></li>
+					<li><a href="/get/third_box_internship">ThirdBoxInternship</a></li>
+					<li><a href="/get/policy_workshop">PolicyWorkshop</a></li>
+					<li><a href="/get/operations_manager">OperationsManager</a></li>
+
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<img src="">
+			<img src="">
+			<img src="">
+		</div>
+	</div>
+</footer>
+
+<script>
+
+
+
+
+$(window).scroll(function(){
+	var scroll =$(window).scrollTop();
+
+	if(scroll>120){
+		$("nav").addClass("navScroll");
+
+	}else{
+		$("nav").removeClass("navScroll");
+
+	}
+});
+
+</script>
+</body>
+<script type="text/javascript">
+  function iframeLoaded() {
+      var iFrameID = document.getElementById('loadframe');
+      if(iFrameID) {
+            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight+100 + "px";
+      }
+  }
+</script>
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+</html>

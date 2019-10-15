@@ -1,0 +1,41 @@
+@media only screen and (max-width: 600px){
+	.course_img{
+		height: 250px;
+	}
+
+	.tut_det{
+		text-align: left;
+	}
+	
+	.tabs{
+	    display: flex;
+	    flex-direction: column;
+  }
+
+  .tabbtn{
+  	width: 90%;
+  	border-radius: 8px;
+  	margin-top:10px;
+  }
+
+  .course_det_enr_wrap{
+  	display: flex;
+  	flex-direction: column;
+  }
+
+  .enr_btn_wrap{
+  	padding-top:20px;
+  }
+
+  .course_last_det_wrap{
+  	display: flex;
+  	flex-direction: column;
+  }
+
+  .last{
+  	width:100%;
+  }
+
+
+
+}

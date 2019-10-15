@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Khula|Maven+Pro|Dosis');
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+
+/**{
+	font-family:'Josefin Sans',sans-serif;
+}*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown_cont {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown_cont a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown_cont a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown_cont {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+nav{
+	position: fixed;
+	width:100%;
+	left:0;
+	height:80px;
+	top:0px;
+	z-index:11 !important;
+
+	box-shadow: 0 2px 19px 1px #dadada;
+	transition:0.2s ease-out;
+	background-color: #fff;
+}
+
+
+
+.logo{
+	font-family: 'etna';
+	font-size:2.5em;
+	position: absolute;
+	left:40px;
+	top:-20px;
+	padding-top:35px;
+	padding-left:10px;
+	padding-right:10px;
+	color:#000;
+}
+
+
+
+.list{
+	margin-right:80px;
+	padding-top:10px;
+	float:right;
+	font-family:'SF';
+
+}
+
+
+.list a{
+	display: inline;
+	font-weight: bold;
+	font-size: 1.4em;
+	color:#000;
+	text-decoration: none;
+}
+
+.list>li{
+	display: inline;
+	padding-left:30px;
+}
+
+a.login_btn{
+	color:#fff;
+}
+
+.login_btn{
+	font-family: 'Gilroy-ExtraBold';
+	border-radius: 50px;
+	position: relative;
+	color:#fff;
+	padding:2px 40px 2px 40px;
+	background-color:#2b44ff;
+}
+
+.login_btn:hover{
+	opacity:0.8;
+}
+/************************************************/
+
+.navScroll{
+	box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+	background: #fff;
+	margin-top:-10px;
+	height:70px;
+}
+
+
+
+.sidenav {
+  height: 100%;
+  width:0;
+  position: fixed;
+  z-index:99;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top:25%;
+}
+
+.sidenav a {
+  padding: 12px 8px 8px 32px;
+  text-decoration: none;
+  font-family: 'Gilroy-ExtraBold';
+  font-size: 3em;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right:40px;
+  font-size:5em;
+  margin-left:0px;
+}
+
+
+.side_menu{
+	font-size:3em;
+	cursor:pointer;
+	display: none;
+	margin-top:-45px;
+}
+
+
+@media only screen and (max-width: 927px){
+	.list li:not(:last-child){
+			display: none;
+	}
+
+	.side_menu{
+		display: block;
+	}
+}
+
+
+
+
+@media only screen and (max-width: 900px){
+	.list{
+		margin-right:30px;
+		color:#000;
+		margin-top:20px;
+	}
+
+	.logo{
+		margin-top:10px;
+	}
+#search
+{
+  margin-left:35%;
+}
+
+}
